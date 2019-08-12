@@ -1,0 +1,111 @@
+<!doctype html>
+
+<head>
+  
+  <title>Quick Start - Leaflet</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css"/>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+  
+</head>
+<body>
+
+<div id="mapid" style="width: 1420px; height: 800px;"></div>
+<script src="js/main.js"></script>
+<!--<script>
+
+
+
+  // let librariesOnEachFeature = function(thing) {
+  //      thing.bindPopup(feature.properties.Name);
+  //    }
+
+// 
+//  var Trees = {"type":"Feature","properties":{"OBJECTID":6463,"TYPE":"Tree in Park"},"geometry":{"type":"Point","coordinates":[-71.05199797715196,42.35987752717867]}}
+  // $.getJSON("Public_Libraries.geojson", function(data) {
+  //     L.geoJSON(data, {
+  //       pointToLayer: function(feature, latlng) {
+  //         return L.marker(latlng).bindPopup("<p class=\"popup-title\">"+feature.properties.BRANCH+"</p><p class=\"popup-text\">"+feature.properties.ST_ADDRESS+"</p>");
+  //       }
+  //     }).addTo(map);
+  // });
+  // $.getJSON("Boston_Neighborhoods.geojson", function(data) {
+  //   //L.geoJson(data).addTo(map)
+  //   var neighborhoodsJson = L.geoJson(data, {
+  //     onEachFeature: function (feature, layer) {
+  //       layer.bindPopup(feature.properties.Name);
+  //     }
+  //   }).addTo(map)
+  // });
+
+
+ // $.getJSON("Open_Space.geojson", function(data) {
+    //     //L.geoJson(data).addTo(map)
+    //     console.log(data)
+    //     var openspaceJson = L.geoJson(data, {
+    //       onEachFeature: function (feature, layer) {
+    //         var popup = L.popup()
+    //         popup.setContent(
+    //           "<p class=\"nametext\">"+feature.properties.SITE_NAME+"</p>"
+    //           +"<p>Ownership: "+feature.properties.OS_Own_Jur+"</p>"
+    //           +"<p>Overseeing agency: "+feature.properties.OS_Own_Jur+"</p>"
+    //           +"<p>District: "+feature.properties.DISTRICT+"</p>"
+    //           +"<p>Land Use Type: "+feature.properties.TypeLong+"</p>"
+    //         )
+    //         // SITE_NAME
+    //         // ACRES
+    //         // AgncyJuris and/or OWNERSHIP
+    //         // DISTRIeCT
+    //         // TypeLong
+    //         layer.bindPopup(popup);
+    
+    //         //layer.popup.setContent("test");
+    //       }
+    //     }).addTo(map)
+    //   });
+
+  // $.getJSON("Boston_Landmarks_Commission_BLC_Landmarks.geojson", function(data) {
+  //     L.geoJSON(data, {
+  //       pointToLayer: function(feature, latlng) {
+  //         return L.marker(latlng).bindPopup("<p class=\"popup-title\">"+feature.properties.Name_of_Pr+"</p>");
+  //       }
+  //     }).addTo(map);
+  // });
+
+  // L.marker([71, 42]).addTo(map)
+  //   .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+  // L.circle([71, 42], 500, {
+  //   color: 'red',
+  //   fillColor: '#f03',
+  //   fillOpacity: 0.5
+  // }).addTo(map).bindPopup("I am a circle.");
+
+  // L.polygon([
+  //   [51.509, -0.08],
+  //   [51.503, -0.06],
+  //   [51.51, -0.047]
+  // ]).addTo(map).bindPopup("I am a polygon.");
+
+
+  // var popup = L.popup();
+
+  // function onMapClick(e) {
+  //   popup
+  //     .setLatLng(e.latlng)
+  //     .setContent("You clicked the map at " + e.latlng.toString())
+  //     .openOn(map);
+  // }
+
+  //  map.on('click', onMapClick);
+
+</script>-->
+</body>
+</html>

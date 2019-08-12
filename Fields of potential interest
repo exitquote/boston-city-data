@@ -1,0 +1,105 @@
+Fields of potential interest:
+
+SITE_NAME
+ACRES
+AgncyJuris and/or OWNERSHIP
+DISTRICT
+TypeLong
+
+ACRES: 0.09717567
+ADDRESS: "Off 1686 Commonwealth Ave."
+ALT_NAME: " "
+AgncyJuris: "PWD"
+DISTRICT: "Allston-Brighton"
+OBJECTID: 7819
+OS_Mngmnt: " "
+OS_Own_Jur: "NULL"
+OWNERSHIP: "City of Boston"
+PA: "X"
+PARK_ID: " "
+POS: "N"
+PROTECTION: " "
+REGION: "PARK_Maintenance_Region 4"
+SITE_NAME: "Wilson Park"
+ShapeSTArea: 4233.046875
+ShapeSTLength: 256.7300082069776
+Shape_STArea__: 0
+Shape_STLength__: 0
+TYPECODE: 1
+TypeLong: "Malls, Squares & Plazas"
+ZonAgg: "Open Space District"
+
+
+
+
+ACRES: 0.92720636
+ADDRESS: " "
+ALT_NAME: " "
+AgncyJuris: " "
+DISTRICT: "Dorchester"
+OBJECTID: 7849
+OS_Mngmnt: " "
+OS_Own_Jur: "NULL"
+OWNERSHIP: "City of Boston"
+PA: " "
+PARK_ID: " "
+POS: "N"
+PROTECTION: " "
+REGION: "INFO_Reallocation From Dept"
+SITE_NAME: "The Humps"
+ShapeSTArea: 40564.796875
+ShapeSTLength: 985.5739435740941
+Shape_STArea__: 0
+Shape_STLength__: 0
+TYPECODE: 6
+TypeLong: "Urban Wilds & Natural Areas"
+ZonAgg: "Residential District"
+
+
+ACRES: 5.13
+ADDRESS: "262-274 Columbia Road"
+ALT_NAME: " "
+AgncyJuris: " "
+DISTRICT: "Roxbury"
+OBJECTID: 8679
+OS_Mngmnt: "BPS"
+OS_Own_Jur: "NULL"
+OWNERSHIP: "City of Boston"
+PA: "X"
+PARK_ID: " "
+POS: "N"
+PROTECTION: " "
+REGION: "PARK_Maintenance_Region 5"
+SITE_NAME: "Fredericks Middle School Playground"
+ShapeSTArea: 223449.9033203125
+ShapeSTLength: 2439.9498306793057
+Shape_STArea__: 0
+Shape_STLength__: 0
+TYPECODE: 3
+TypeLong: "Parks, Playgrounds & Athletic Fields"
+ZonAgg: "Industrial District"
+
+
+
+ACRES: 0
+ADDRESS: " "
+ALT_NAME: " "
+AgncyJuris: "BRA"
+DISTRICT: "Central Boston"
+OBJECTID: 8710
+OS_Mngmnt: "BRA"
+OS_Own_Jur: " "
+OWNERSHIP: "BRA"
+PA: "X"
+PARK_ID: " "
+POS: "N"
+PROTECTION: " "
+REGION: "INFO_Reallocation From Dept"
+SITE_NAME: "Long Wharf Boat Access"
+ShapeSTArea: 3597.796630859375
+ShapeSTLength: 320.40263510578734
+Shape_STArea__: 0
+Shape_STLength__: 0
+TYPECODE: 1
+TypeLong: "Malls, Squares & Plazas"
+ZonAgg: "Special District"
