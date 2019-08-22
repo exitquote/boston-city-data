@@ -29,7 +29,7 @@ const map = L.map('mapid').setView(L.latLng(42.305552, -71.094972), 12);
 
 //const map = L.map('mapid').setView(L.latLng(42.268075, -71.098007), 16);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=sk.eyJ1IjoibWR1Z2dhbiIsImEiOiJjandvYmRlcXowdGd3NDRyMm03enFzdWR6In0.OBC3XbRUpWdJlNJ9GtjnNA', {
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWR1Z2dhbiIsImEiOiJjanpuM3B3OXYwMDNpM21vOW4wMWZxcG04In0.jseO-HANjySuMXvauu3Fng', {
   maxZoom: 18,
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
