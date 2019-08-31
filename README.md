@@ -5,3 +5,6 @@ are available only in CSV format from the City's website, so I've taken a few ch
 entries that did not have location data (for some data sets, this was sizeable enough to note - e.g. ~250 of
 5500 entries have been expunged), and converted to GeoJSON for use with Leaflet.  This is not 100% of the 
 available data, but it is a nice way to get an idea of incident reports in particular areas of the city.
+
+Development:
+`docker run -dit --name httpd -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4`
