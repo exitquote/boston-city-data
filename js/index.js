@@ -60,6 +60,14 @@ const mapper = {
   //   label: "Enabled",
   //   fieldName: "ENABLED"
   // },
+  "fire_stations": {
+    label: "Companies",
+    fieldName: "LOCNAME"
+  },
+  "fire_districts": {
+    label: "District",
+    fieldName: "DISTRICT"
+  },
   // "trees": {
   //   label: "Type",
   //   fieldName: "TYPE"
