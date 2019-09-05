@@ -37,37 +37,45 @@ if (window.location.hostname === 'localhost') {
 
 const mapper = {
   "libraries": {
-    label: "Branch",
-    fieldName: "BRANCH"
+    dropDownLabel: "Libraries",
+    popupData: [
+      {fieldName: "BRANCH", fieldLabel: "Branch:"},
+      {}
+    ]
   },
   "zipcodes": {
-    label: "Zip Code",
-    fieldName: "ZIP5"
+    dropDownLabel: "Zip Code",
+    popupData: [
+      {fieldName: "ZIP5", fieldLabel: "Zip: "}
+    ]
   },
-  "police_districts": {
-    label: "District",
-    fieldName: "DISTRICT"
-  },
-  "public_schools": {
-    label: "School",
-    fieldName: "SCH_NAME"
-  },
-  "neighborhoods": {
-    label: "Neighborhood",
-    fieldName: "NAME"
-  },
+  // "police_districts": {
+  //   label: "District",
+  //   fieldName: "DISTRICT"
+  // },
+  // "public_schools": {
+  //   label: "School",
+  //   fieldName: "SCH_NAME"
+  // },
+  // "neighborhoods": {
+  //   label: "Neighborhood",
+  //   fieldName: "NAME"
+  // },
   // "hydrants": {
   //   label: "Enabled",
   //   fieldName: "ENABLED"
   // },
   "fire_stations": {
-    label: "Companies",
-    fieldName: "LOCNAME"
+    dropDownLabel: "Fire Stations",
+    popupData: [
+      {fieldName: "LOCNAME", fieldLabel: "Station:"},
+      {fieldName: "GEOADDRESS", fieldLabel: "Address:"}
+    ]
   },
-  "fire_districts": {
-    label: "District",
-    fieldName: "DISTRICT"
-  },
+  // "fire_districts": {
+  //   label: "District",
+  //   fieldName: "DISTRICT"
+  // },
   // "trees": {
   //   label: "Type",
   //   fieldName: "TYPE"
@@ -76,21 +84,21 @@ const mapper = {
   //   label: "???",
   //   fieldName: "???"
   // },
-  "openspaces": {
-    label: "Name",
-    fieldName: "SITE_NAME"
-  },
-  "landmarks": {
-    label: "Landmark",
-    fieldName: "Name_of_Pr"
-  }
+  // "openspaces": {
+  //   label: "Name",
+  //   fieldName: "SITE_NAME"
+  // },
+  // "landmarks": {
+  //   label: "Landmark",
+  //   fieldName: "Name_of_Pr"
+  // }
 }
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
     var options = "<select id=\"map_menu\">"
     $.each(mapper, function(idx, val) {
-      options+="<option id=\""+idx+"\">"+idx+"</option>"
+      options+="<option id=\""+idx+"\" value=\""+idx+"\">"+val.dropDownLabel+"</option>"
     })
     options += "</select>"
     div.innerHTML = options;
@@ -99,10 +107,15 @@ legend.onAdd = function (map) {
 };
 legend.addTo(map);
 
+let template = $("#popup-template").html()
+console.log(template)
+let templateScript = Handlebars.compile(template);
+
 $('#map_menu').change(function() {
   var optionSelected = $("option:selected", this);
-  var valueSelected = this.value;
+  var valueSelected = optionSelected[0].value;
   url = apiURL+"/map/"+valueSelected
+  let context = []
   $.getJSON(url, function(data) {
     // map valueSelected/api endpoint to something describing
     // the label the popup should have as well as the fieldname it should display
@@ -110,16 +123,19 @@ $('#map_menu').change(function() {
     // fields if needed - may want handlebars for this
     map.removeLayer(layerGroup)
     layerGroup = L.layerGroup().addTo(map);
-    mapperEntry = mapper[valueSelected]
-    label = mapperEntry['label']
-    fieldName = mapperEntry['fieldName']
+    let featureMappings = mapper[valueSelected].popupData
     currentLayer = L.geoJson(data, {
       onEachFeature: function (feature, layer) {
+        context['current'] = feature
+        context['features'] = featureMappings
+       // console.log(context)
         var popup = L.popup()
         var holder = feature['properties']
+        let test = templateScript(context)
+        console.log(test)
         popup.setContent(
-          "<p>"+label+": "+holder[fieldName]+"</p>"
-          )
+          
+        )
         layer.bindPopup(popup);
       }
     })

@@ -1,0 +1,24 @@
+<div id="popup-template">
+{{#each context.features}}
+{{log this}}
+{{!--
+data coming in should look this way:
+{
+    current: {
+        geometry: {type: "Point", coordinates: []},
+        properties: {YCOORD: null, XCOORD: null, CT90: null, PD: "CENTRAL", GEOADDRESS: "50 Battery Wharf", …},
+    features: [
+        {fieldName: "LOCNAME", fieldLabel: "Station:"},
+        {fieldName: "GEOADDRESS", fieldLabel: "Address:"}
+    ]
+}
+
+the idea:
+    foreach [item in features]: 
+        <p>current["properties"]["label"]: current["properties"]["fieldName"]</p>
+
+--}}
+<p>{{this}}</p>
+<p>{{current.properties[this.fieldLabel]}}: {{current.properties[this.fieldName]}}</p>
+{{/each}}
+</div>
