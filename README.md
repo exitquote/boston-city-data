@@ -7,4 +7,4 @@ entries that did not have location data (for some data sets, this was sizeable e
 available data, but it is a nice way to get an idea of incident reports in particular areas of the city.
 
 Development:
-`docker run -dit --name httpd -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4`
+`docker run -dit --name httpd -p 8080:80 -v /path/to/git/repo:/usr/local/apache2/htdocs/ httpd:2.4`
