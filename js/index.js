@@ -1,4 +1,4 @@
-const map = L.map('map').setView(L.latLng(42.305552, -71.094972), 12);
+const map = L.map('mapid').setView(L.latLng(42.305552, -71.094972), 12);
 
 var Title = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWR1Z2dhbiIsImEiOiJjanpuM3B3OXYwMDNpM21vOW4wMWZxcG04In0.jseO-HANjySuMXvauu3Fng', {
   maxZoom: 18,
