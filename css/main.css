@@ -17,6 +17,15 @@ html {
   line-height: 1.4;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+}
+html, body, #map {
+  height: 100%;
+  width: 100%;
+}
+
 .nametext {
   font-weight: bold;
 }
