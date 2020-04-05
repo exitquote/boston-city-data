@@ -64,7 +64,7 @@ const mapper = {
   },
   "neighborhoods": {
     label: "Neighborhood",
-    fieldName: "NAME",
+    fieldName: "Name",
     dropdown: "Neighborhoods"
   },
   // "hydrants": {
