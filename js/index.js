@@ -81,6 +81,11 @@ const mapper = {
     fieldName: "DISTRICT",
     dropdown: "Fire Districts"
   },
+  // "city_council_districts": {
+  //   label: "District",
+  //   fieldName: "DISTRICT",
+  //   dropdown: "City Council Districts"
+  // },
   // "trees": {
   //   label: "Type",
   //   fieldName: "TYPE"
@@ -147,6 +152,8 @@ $('#map_menu').change(function() {
     // add it to the map
     // remove the other data/lasyers
 })
+
+$('#map_menu').trigger('change')
 
 // $.getJSON("e18_2018_q34.geojson", function(data) {
 //   L.geoJson(data).addTo(map)
