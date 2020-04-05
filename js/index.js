@@ -27,6 +27,7 @@ const prodFlag = {
   development: true
 }
 
+
 if (window.location.hostname === 'localhost') {
   apiURL = apiURLs.development
   isNotProd = prodFlag.development
@@ -38,23 +39,33 @@ if (window.location.hostname === 'localhost') {
 const mapper = {
   "libraries": {
     label: "Branch",
-    fieldName: "BRANCH"
+    fieldName: "BRANCH",
+    dropdown: "Library Branches"
   },
   "zipcodes": {
     label: "Zip Code",
-    fieldName: "ZIP5"
+    fieldName: "ZIP5",
+    dropdown: "Zip Codes"
   },
   "police_districts": {
     label: "District",
-    fieldName: "DISTRICT"
+    fieldName: "DISTRICT",
+    dropdown: "Police Districts"
+  },
+  "police_stations": {
+    label: "Station",
+    fieldName: "NAME",
+    dropdown: "Police Stations"
   },
   "public_schools": {
     label: "School",
-    fieldName: "SCH_NAME"
+    fieldName: "SCH_NAME",
+    dropdown: "Boston Public Schools"
   },
   "neighborhoods": {
     label: "Neighborhood",
-    fieldName: "NAME"
+    fieldName: "NAME",
+    dropdown: "Neighborhoods"
   },
   // "hydrants": {
   //   label: "Enabled",
@@ -62,11 +73,13 @@ const mapper = {
   // },
   "fire_stations": {
     label: "Companies",
-    fieldName: "LOCNAME"
+    fieldName: "LOCNAME",
+    dropdown: "Fire Stations"
   },
   "fire_districts": {
     label: "District",
-    fieldName: "DISTRICT"
+    fieldName: "DISTRICT",
+    dropdown: "Fire Districts"
   },
   // "trees": {
   //   label: "Type",
@@ -78,19 +91,22 @@ const mapper = {
   // },
   "openspaces": {
     label: "Name",
-    fieldName: "SITE_NAME"
+    fieldName: "SITE_NAME",
+    dropdown: "Open Spaces"
   },
   "landmarks": {
     label: "Landmark",
-    fieldName: "Name_of_Pr"
+    fieldName: "Name_of_Pr",
+    dropdown: "Landmarks"
   }
 }
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
     var options = "<select id=\"map_menu\">"
+
     $.each(mapper, function(idx, val) {
-      options+="<option id=\""+idx+"\">"+idx+"</option>"
+      options+="<option label=\""+val.dropdown+"\" id=\""+idx+"\">"+idx+"</option>"
     })
     options += "</select>"
     div.innerHTML = options;
@@ -113,7 +129,7 @@ $('#map_menu').change(function() {
     mapperEntry = mapper[valueSelected]
     label = mapperEntry['label']
     fieldName = mapperEntry['fieldName']
-    currentLayer = L.geoJson(data, {
+    currentLayer = L.geoJSON(data, {
       onEachFeature: function (feature, layer) {
         var popup = L.popup()
         var holder = feature['properties']
