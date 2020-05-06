@@ -36,6 +36,8 @@ if (window.location.hostname === 'localhost') {
   isNotProd = prodFlag.production
 }
 
+// TODO: (1) Better labeling, (2) Default to map of the full city
+
 const mapper = {
   "libraries": {
     label: "Branch",
@@ -81,11 +83,16 @@ const mapper = {
     fieldName: "DISTRICT",
     dropdown: "Fire Districts"
   },
-  // "city_council_districts": {
-  //   label: "District",
-  //   fieldName: "DISTRICT",
-  //   dropdown: "City Council Districts"
-  // },
+  "city_council_districts": {
+    label: "District",
+    fieldName: "DISTRICT",
+    dropdown: "City Council Districts"
+  },
+  "wards": {
+    label: "Ward",
+    fieldName: "WARD",
+    dropdown: "Wards"
+  },
   // "trees": {
   //   label: "Type",
   //   fieldName: "TYPE"
@@ -103,6 +110,31 @@ const mapper = {
     label: "Landmark",
     fieldName: "Name_of_Pr",
     dropdown: "Landmarks"
+  },
+  "trash": {
+    label: "Trash Collection Day",
+    fieldName: "TRASHDAY",
+    dropdown: "Trash Collection Days"
+  },
+  "precincts": {
+    label: "Precinct",
+    fieldName: "PRECINCT",
+    dropdown: "Precincts"
+  },
+  // "fire_alarm_boxes": {
+  //   label: "Fire Box",
+  //   fieldName: "LOCATION",
+  //   dropdown: "Fire Alarm Boxes"
+  // },
+  // "polling_locations": {
+  //   label: "Location",
+  //   fieldName: "Location2",
+  //   dropdown: "Polling Locations"
+  // },
+  "snow_emergency_routes": {
+    label: "Street",
+    fieldName: "FULL_NAME",
+    dropdown: "Snow Emergency Routes"
   }
 }
 
