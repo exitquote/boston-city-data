@@ -198,6 +198,15 @@ textarea {
   text-align: center;
 }
 
+.popup-image {
+  height: 100%;
+  width: 100%;
+}
+
+.popup-line {
+  text-align: center;
+}
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.

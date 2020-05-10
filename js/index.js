@@ -40,33 +40,42 @@ if (window.location.hostname === 'localhost') {
 
 const mapper = {
   "libraries": {
-    label: "Branch",
-    fieldName: "BRANCH",
+    displayFields: [
+        {"field": "BRANCH"},
+        {"label": "Address:", "field": "ST_ADDRESS"}
+      ],
     dropdown: "Library Branches"
   },
   "zipcodes": {
-    label: "Zip Code",
-    fieldName: "ZIP5",
+    displayFields: [
+      {"field": "ZIP5"},
+    ],
     dropdown: "Zip Codes"
   },
   "police_districts": {
-    label: "District",
-    fieldName: "DISTRICT",
+    displayFields: [
+      {"label": "District", "field": "DISTRICT"}
+    ],
     dropdown: "Police Districts"
   },
   "police_stations": {
-    label: "Station",
-    fieldName: "NAME",
+    displayFields: [
+      {"field": "NAME"}
+    ],
     dropdown: "Police Stations"
   },
   "public_schools": {
     label: "School",
-    fieldName: "SCH_NAME",
+    displayFields: [
+      {"field": "SCH_NAME"},
+      {"label": "Address:", "field": "ADDRESS"}
+    ],
     dropdown: "Boston Public Schools"
   },
   "neighborhoods": {
-    label: "Neighborhood",
-    fieldName: "Name",
+    displayFields: [
+      {"field": "Name"}
+    ],
     dropdown: "Neighborhoods"
   },
   // "hydrants": {
@@ -74,25 +83,80 @@ const mapper = {
   //   fieldName: "ENABLED"
   // },
   "fire_stations": {
-    label: "Companies",
-    fieldName: "LOCNAME",
+    displayFields: [
+      {"label": "Companies:", "field": "LOCNAME"}
+    ],
     dropdown: "Fire Stations"
   },
   "fire_districts": {
-    label: "District",
-    fieldName: "DISTRICT",
+    displayFields: [
+      {"label": "District", "field": "DISTRICT"}
+    ],
     dropdown: "Fire Districts"
   },
   "city_council_districts": {
-    label: "District",
-    fieldName: "DISTRICT",
+    displayFields: [
+      {"label": "District", "field": "DISTRICT"},
+      {"label": "Councilor:", "field": "Councilor"},
+      {"field": "Bio", "link": true},
+      {"field": "Image", "image": true}
+    ],
     dropdown: "City Council Districts"
   },
   "wards": {
     label: "Ward",
+    displayFields: [
+        {"label": "Ward", "field": "WARD"}
+    ],
     fieldName: "WARD",
     dropdown: "Wards"
   },
+  "openspaces": {
+    displayFields: [
+      {"field": "SITE_NAME"},
+      {"field": "OWNERSHIP", "label": "Owner:"}
+      // this one can have managing agency with links, etc.
+    ],
+    dropdown: "Open Spaces"
+  },
+  "landmarks": {
+    displayFields: [
+      {"field": "Name_of_Pr"}
+    ],
+    dropdown: "Landmarks"
+  },
+  "trash": {
+    // change this to full day name
+    displayFields: [
+      {"field": "TRASHDAY"}
+    ],
+    dropdown: "Trash Collection Days"
+  },
+  "precincts": {
+    displayFields: [
+      {"field": "PRECINCT", "label": "Precinct"}
+    ],
+    dropdown: "Precincts"
+  },
+  "fire_alarm_boxes": {
+    displayFields: [
+      {"field": "LOCATION2"}
+    ],
+    dropdown: "Fire Alarm Boxes"
+  },
+  "polling_locations": {
+    // does this possibly have the wards/precincts who vote here?
+    displayFields: [
+      {"field": "Location2"}
+    ],
+    dropdown: "Polling Locations"
+  },
+  "snow_emergency_routes": {
+    displayFields: [
+      {"field": "FULL_NAME"}
+    ],
+    dropdown: "Snow Emergency Routes"
+  }
   // "trees": {
   //   label: "Type",
   //   fieldName: "TYPE"
@@ -101,41 +165,6 @@ const mapper = {
   //   label: "???",
   //   fieldName: "???"
   // },
-  "openspaces": {
-    label: "Name",
-    fieldName: "SITE_NAME",
-    dropdown: "Open Spaces"
-  },
-  "landmarks": {
-    label: "Landmark",
-    fieldName: "Name_of_Pr",
-    dropdown: "Landmarks"
-  },
-  "trash": {
-    label: "Trash Collection Day",
-    fieldName: "TRASHDAY",
-    dropdown: "Trash Collection Days"
-  },
-  "precincts": {
-    label: "Precinct",
-    fieldName: "PRECINCT",
-    dropdown: "Precincts"
-  },
-  // "fire_alarm_boxes": {
-  //   label: "Fire Box",
-  //   fieldName: "LOCATION",
-  //   dropdown: "Fire Alarm Boxes"
-  // },
-  // "polling_locations": {
-  //   label: "Location",
-  //   fieldName: "Location2",
-  //   dropdown: "Polling Locations"
-  // },
-  "snow_emergency_routes": {
-    label: "Street",
-    fieldName: "FULL_NAME",
-    dropdown: "Snow Emergency Routes"
-  }
 }
 
 legend.onAdd = function (map) {
@@ -170,9 +199,29 @@ $('#map_menu').change(function() {
       onEachFeature: function (feature, layer) {
         var popup = L.popup()
         var holder = feature['properties']
-        popup.setContent(
-          "<p>"+label+": "+holder[fieldName]+"</p>"
-          )
+        popupContent = ""
+        mapperEntry['displayFields'].forEach(function(item) {
+          if (!item['image'] && !item['link']) {
+            if (item['label'] != undefined) {
+              label = item['label']+" "
+              popupContent += "<div class=\"popup-line\"><span class=\"popup-title\">"+label+"</span>"+holder[item['field']]+"</div>"
+            } else {
+                label = ""
+                popupContent += "<div class=\"popup-line\"><span class=\"popup-title\">"+holder[item['field']]+"</span></div>"
+            }
+            
+          }
+          if (item['image']) {
+            img = holder[item['field']]
+            popupContent += "<div class=\"popup-line\"><img class=\"popup-image\" src=\""+img+"\"></div>"
+          }
+          if (item['link']) {
+            link = holder[item['field']]
+            popupContent += "<div class=\"popup-line\"><a class=\"popup-link\" href=\""+link+"\" target=\"_blank\">"+link+"</a></div>"
+          }
+
+        })
+        popup.setContent(popupContent)
         layer.bindPopup(popup);
       }
     })
