@@ -128,7 +128,7 @@ const mapper = {
   "trash": {
     // change this to full day name
     displayFields: [
-      {"field": "TRASHDAY"}
+      {"field": "trashDayLong"}
     ],
     dropdown: "Trash Collection Days"
   },
