@@ -96,7 +96,7 @@ const mapper = {
   },
   "city_council_districts": {
     displayFields: [
-      {"label": "District", "field": "DISTRICT"},
+      {"field": "District_Long"},
       {"label": "Councilor:", "field": "Councilor"},
       {"field": "Bio", "link": true},
       {"field": "Image", "image": true}
@@ -121,7 +121,10 @@ const mapper = {
   },
   "landmarks": {
     displayFields: [
-      {"field": "Name_of_Pr"}
+      {"field": "Name_of_Pr"},
+      {"field": "Areas_Desi", "label": "Area:"},
+      {"field": "Address", "label": "Address:"},
+      {"field": "Date_Desig", "label": "Date designated:"}
     ],
     dropdown: "Landmarks"
   },
@@ -204,7 +207,9 @@ $('#map_menu').change(function() {
           if (!item['image'] && !item['link']) {
             if (item['label'] != undefined) {
               label = item['label']+" "
-              popupContent += "<div class=\"popup-line\"><span class=\"popup-title\">"+label+"</span>"+holder[item['field']]+"</div>"
+              if ( holder[item['field']] !== " " ) {
+                popupContent += "<div class=\"popup-line\"><span class=\"popup-title\">"+label+"</span>"+holder[item['field']]+"</div>"
+              }
             } else {
                 label = ""
                 popupContent += "<div class=\"popup-line\"><span class=\"popup-title\">"+holder[item['field']]+"</span></div>"
