@@ -1,11 +1,13 @@
 const map = L.map('mapid').setView(L.latLng(42.305552, -71.094972), 12);
 
-var Title = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWR1Z2dhbiIsImEiOiJjanpuM3B3OXYwMDNpM21vOW4wMWZxcG04In0.jseO-HANjySuMXvauu3Fng', {
+var Title = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWR1Z2dhbiIsImEiOiJjanpuM3B3OXYwMDNpM21vOW4wMWZxcG04In0.jseO-HANjySuMXvauu3Fng', {
   maxZoom: 18,
+  tileSize: 512,
+  zoomOffset: -1,
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  id: 'mapbox.streets'
+  id: 'mapbox/streets-v11'  
 })
 Title.addTo(map);
 
@@ -54,7 +56,7 @@ const mapper = {
   },
   "police_districts": {
     displayFields: [
-      {"label": "District", "field": "DISTRICT"}
+      {"field": "DISTRICT"}
     ],
     dropdown: "Police Districts"
   },
@@ -159,15 +161,20 @@ const mapper = {
       {"field": "FULL_NAME"}
     ],
     dropdown: "Snow Emergency Routes"
-  }
-  // "trees": {
-  //   label: "Type",
-  //   fieldName: "TYPE"
+  },
+  // "crimes": {
+  //   displayFields: [
+  //     {"field": "FULL_NAME"}
+  //   ],
+  //   dropdown: "Crime Data A1"
   // },
-   // "crimes": {
-  //   label: "???",
-  //   fieldName: "???"
-  // },
+  "trees": {
+    displayFields: [
+      {"field": "TYPE"}
+    ],
+    dropdown: "Trees"
+  },
+
 }
 
 legend.onAdd = function (map) {
